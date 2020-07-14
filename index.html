@@ -1,0 +1,37 @@
+<script>
+  function computerPlay() {
+    let items = ["rock", "paper", "scissors"];
+    var item = items[Math.floor(Math.random() * items.length)];
+    return item;
+  }
+
+  function playRPS(playerSelection, computerSelection) {
+    playerSelection = playerSelection.toLowerCase();
+
+    if (playerSelection === computerSelection) {
+      return "it's a draw";
+    } else if (playerSelection === "rock") {
+      if (computerSelection === "paper") {
+        return "You Lose!";
+      } else {
+        return "You Win!";
+      }
+    } else if (playerSelection === "paper") {
+      if (computerSelection === "scissors") {
+        return "You Lose!";
+      } else {
+        return "You Win!";
+      }
+    } else if (playerSelection === "scissors") {
+      if (computerSelection === "rock") {
+        return "You Lose!";
+      } else {
+        return "You Win!";
+      }
+    }
+  }
+  const playerSelection = prompt("Choose Rock, Paper, or Scissors");
+  const computerSelection = computerPlay();
+  alert(`computer choose ${computerSelection}`);
+  alert(playRPS(playerSelection, computerSelection));
+</script>
