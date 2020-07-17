@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <script>
   function computerPlay() {
     let items = ["rock", "paper", "scissors"];
@@ -30,8 +31,47 @@
       }
     }
   }
-  const playerSelection = prompt("Choose Rock, Paper, or Scissors");
-  const computerSelection = computerPlay();
-  alert(`computer choose ${computerSelection}`);
-  alert(playRPS(playerSelection, computerSelection));
+
+  function displayResult(computerSelection, result) {
+    return `Computer chooses ${computerSelection}, ${result}`;
+  }
+
+  // const playerSelection = prompt("Choose Rock, Paper, or Scissors");
+  // const computerSelection = computerPlay();
+
+  // // alert(
+  // //   displayResult(
+  // //     computerSelection,
+  // //     playRPS(playerSelection, computerSelection)
+  // //   )
+  // // );
+
+  function game() {
+    let i = 1;
+    let playerScore = 0;
+    let computerScore = 0;
+    alert("Welcome to 5 rounds game of Rock, Paper, Scissors");
+    while (i <= 5) {
+      const playerSelection = prompt(`Round ${i}:
+      Choose Rock, Paper, or Scissors:`);
+      const computerSelection = computerPlay();
+      let result = playRPS(playerSelection, computerSelection);
+      if (result === "You Win!") {
+        playerScore++;
+      } else if (result === "You Lose!") {
+        computerScore++;
+      }
+
+      alert(`${displayResult(computerSelection, result)}
+      Current score:
+      You: ${playerScore}
+      Computer: ${computerScore}`);
+      i++;
+    }
+
+    alert(`Final Score:
+    You: ${playerScore}
+    Computer: ${computerScore}`);
+  }
+  game();
 </script>
